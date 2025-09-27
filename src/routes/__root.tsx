@@ -23,20 +23,38 @@ const RootLayout = () => (
   <div className='flex'>
     
     <Sidebar className='h-screen' collapsed={false} collapsedWidth='0px'>
-    
-      <Menu >
-        <SubMenu label="Charts" >
-          <Separator />
-          <MenuItem component={<Link to="/about" className="[&.active]:font-bold" />}> Pie charts </MenuItem>
-          <MenuItem component={<Link to="/" className="[&.active]:font-bold" />}> Line charts </MenuItem>
-        </SubMenu>
-        <MenuItem> Documentation </MenuItem>
-        <MenuItem> Calendar </MenuItem>
-        <SubMenu className='mt-20px' label="Settings" >
-          <MenuItem> Profile </MenuItem>
-        </SubMenu>
-      </Menu>
-    </Sidebar>
+
+  <Menu>
+    {/* Category 1 */}
+    <div className="px-3 py-2 text-xs font-semibold uppercase text-gray-400">
+      Project Files
+    </div>
+    <SubMenu label="src">
+      <MenuItem>App.tsx</MenuItem>
+      <MenuItem>main.tsx</MenuItem>
+    </SubMenu>
+    <SubMenu label="components">
+      <MenuItem>Button.tsx</MenuItem>
+      <MenuItem>Card.tsx</MenuItem>
+    </SubMenu>
+
+    {/* Gap between categories */}
+    <div className="my-3 border-t border-gray-700" />
+
+    {/* Category 2 */}
+    <div className="px-3 py-2 text-xs font-semibold uppercase text-gray-400">
+      Settings
+    </div>
+    <SubMenu label="User">
+      <MenuItem>Profile</MenuItem>
+      <MenuItem>Preferences</MenuItem>
+    </SubMenu>
+    <SubMenu label="System">
+      <MenuItem>Logs</MenuItem>
+      <MenuItem><Link to="/about">about</Link></MenuItem>
+    </SubMenu>
+  </Menu>
+</Sidebar>
     <Card className='w-full'>
       <Outlet />
     </Card>
