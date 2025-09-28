@@ -29,9 +29,10 @@ const RootLayout = () => (
     <div className="px-3 py-2 text-xs font-semibold uppercase text-gray-400">
       Project Files
     </div>
-    <SubMenu label="src">
-      <MenuItem>App.tsx</MenuItem>
-      <MenuItem>main.tsx</MenuItem>
+    <SubMenu label="Routes">
+      <MenuItem><Link to="/">Root</Link></MenuItem>
+      <MenuItem><Link to="/StatePlanning">StatePlanning</Link></MenuItem>
+      
     </SubMenu>
     <SubMenu label="components">
       <MenuItem>Button.tsx</MenuItem>
@@ -51,7 +52,7 @@ const RootLayout = () => (
     </SubMenu>
     <SubMenu label="System">
       <MenuItem>Logs</MenuItem>
-      <MenuItem><Link to="/about">about</Link></MenuItem>
+      <MenuItem><Link to="/">about</Link></MenuItem>
     </SubMenu>
   </Menu>
 </Sidebar>
