@@ -1,4 +1,4 @@
-import { Calendar, ChevronUp, LayoutDashboardIcon, NotebookPenIcon, Search, Settings, User2 } from "lucide-react"
+import { BriefcaseBusiness, Calendar, ChevronDown, ChevronUp, FileCode, FolderOpen, FolderRoot, GanttChart, Hammer, House, LayoutDashboardIcon, NotebookPen, NotebookPenIcon, ScrollText, Search, Settings, User2 } from "lucide-react"
 
 import {
   Sidebar,
@@ -11,41 +11,16 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubItem,
   SidebarSeparator,
 } from "@/components/ui/sidebar"
 import { Link } from "@tanstack/react-router"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"
 
 
-// Menu items.
-const items = [
-  {
-    title: "Dashboard",
-    url: "/",
-    icon: LayoutDashboardIcon,
-  },
-  {
-    title: "StatePlanning",
-    url: "/StatePlanning",
-    icon: NotebookPenIcon,
-  },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
-  },
-]
 
 export default function AppSidebar() {
   
@@ -70,23 +45,137 @@ export default function AppSidebar() {
       <SidebarSeparator/>
 
       <SidebarContent>
+
         <SidebarGroup>
-        <SidebarGroupLabel>Application</SidebarGroupLabel>
+        <SidebarGroupLabel>Routes</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <Link to={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
+          <SidebarMenuButton asChild>
+            <Link to="/"> <House/> Home</Link>
+          </SidebarMenuButton>
+
+          <Collapsible defaultOpen className="group/collapsible">
+            <SidebarMenuItem>
+              <CollapsibleTrigger asChild>
+                <SidebarMenuButton asChild><Link to="/StatePlanning">
+                  Planning System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" /></Link>
+                </SidebarMenuButton>
+              </CollapsibleTrigger>
+              
+              <CollapsibleContent>
+                <SidebarMenuSub>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link to="/StatePlanning"><ScrollText/> Planning Master</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link to="/StatePlanning"><NotebookPen/> StatePlanning</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link to="/StatePlanning"><BriefcaseBusiness/> Work Planning</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenuSub>
+              </CollapsibleContent>
+            </SidebarMenuItem>
+          </Collapsible>
+
+          <Collapsible defaultOpen className="group/collapsible">
+            <SidebarMenuItem>
+              <CollapsibleTrigger asChild>
+                <SidebarMenuButton asChild><Link to="/StatePlanning">
+                  Knowledge System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" /></Link>
+                </SidebarMenuButton>
+              </CollapsibleTrigger>
+              
+              <CollapsibleContent>
+                <SidebarMenuSub>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link to="/StatePlanning"><FolderRoot/>Knowledge Order</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link to="/StatePlanning"><FolderOpen/>File System</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link to="/StatePlanning"><FileCode/>File Editor</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenuSub>
+              </CollapsibleContent>
+            </SidebarMenuItem>
+          </Collapsible>
+
+          <Collapsible defaultOpen className="group/collapsible">
+            <SidebarMenuItem>
+              <CollapsibleTrigger asChild>
+                <SidebarMenuButton asChild><Link to="/StatePlanning">
+                  Execution System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" /></Link>
+                </SidebarMenuButton>
+              </CollapsibleTrigger>
+              
+              <CollapsibleContent>
+                <SidebarMenuSub>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link to="/StatePlanning"><GanttChart/>Gantt</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link to="/StatePlanning"><Calendar/>Calander</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link to="/StatePlanning"><Hammer/>Workspaces</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenuSub>
+              </CollapsibleContent>
+            </SidebarMenuItem>
+          </Collapsible>
+
+          <Collapsible  className="group/collapsible">
+            <SidebarMenuItem>
+              <CollapsibleTrigger asChild>
+                <SidebarMenuButton asChild><Link to="/StatePlanning">
+                  Ability System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" /></Link>
+                </SidebarMenuButton>
+              </CollapsibleTrigger>
+              
+              <CollapsibleContent>
+                <SidebarMenuSub>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link to="/StatePlanning"><GanttChart/>Gantt</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link to="/StatePlanning"><Calendar/>Calander</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link to="/StatePlanning"><Hammer/>Workspaces</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenuSub>
+              </CollapsibleContent>
+            </SidebarMenuItem>
+          </Collapsible>
+
           </SidebarGroupContent>
         </SidebarGroup>
+
       </SidebarContent>
 
       <SidebarFooter>
