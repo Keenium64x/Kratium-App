@@ -21,7 +21,7 @@
 
 .wb-header{
 
-    background: url('./../public/corporate-bg-winboxsvg.svg') center/cover repeat,
+    background: url('./../corporate-bg-winboxsvg.svg') center/cover repeat,
     #110E13;
     background-size: 100px;
 }

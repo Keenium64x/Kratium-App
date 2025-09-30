@@ -249,7 +249,7 @@ function openWorkspace(event: React.MouseEvent, node: string) {
 
 
   return (
-    <div style={{ height: '100vh', width: '100vw' }}>
+    <div style={{ height: '850px', width: '100%' }}>
       <ReactFlow
 
         nodes={nodes}

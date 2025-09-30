@@ -1,68 +1,27 @@
-import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
+import { createRootRoute, Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import "./../index.css"
-
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-
-import { Separator } from "@/components/ui/separator"
-
+import AppSidebar from '../components/app-sidebar'
+import { SidebarProvider } from '@/components/ui/sidebar'
+import  Navbar from '@/components/Navbar'
+import { ThemeProvider } from '@/components/theme-provider'
 
 
 const RootLayout = () => (
-  <>
-
-  <div className='flex'>
-    
-    <Sidebar className='h-screen' collapsed={false} collapsedWidth='0px'>
-
-  <Menu>
-    {/* Category 1 */}
-    <div className="px-3 py-2 text-xs font-semibold uppercase text-gray-400">
-      Project Files
-    </div>
-    <SubMenu label="Routes">
-      <MenuItem><Link to="/">Root</Link></MenuItem>
-      <MenuItem><Link to="/StatePlanning">StatePlanning</Link></MenuItem>
-      
-    </SubMenu>
-    <SubMenu label="components">
-      <MenuItem>Button.tsx</MenuItem>
-      <MenuItem>Card.tsx</MenuItem>
-    </SubMenu>
-
-    {/* Gap between categories */}
-    <div className="my-3 border-t border-gray-700" />
-
-    {/* Category 2 */}
-    <div className="px-3 py-2 text-xs font-semibold uppercase text-gray-400">
-      Settings
-    </div>
-    <SubMenu label="User">
-      <MenuItem>Profile</MenuItem>
-      <MenuItem>Preferences</MenuItem>
-    </SubMenu>
-    <SubMenu label="System">
-      <MenuItem>Logs</MenuItem>
-      <MenuItem><Link to="/">about</Link></MenuItem>
-    </SubMenu>
-  </Menu>
-</Sidebar>
-    <Card className='w-full'>
-      <Outlet />
-    </Card>
-  </div>
-  
-  <TanStackRouterDevtools />
-  </>
+<ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+    <SidebarProvider>
+      <div className="flex w-full h-screen bg-black">
+        <AppSidebar />
+        <div className="flex-1 p-4">
+          {/* Rounded content container */}
+          <div className="bg-[#110E13] rounded-xl px-6 min-h-full">
+            <Navbar />
+            <Outlet />
+          </div>
+        </div>
+      </div>
+      <TanStackRouterDevtools />
+    </SidebarProvider>
+  </ThemeProvider>
 )
 
 export const Route = createRootRoute({ component: RootLayout })
