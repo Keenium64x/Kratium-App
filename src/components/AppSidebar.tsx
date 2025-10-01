@@ -42,16 +42,19 @@ export default function AppSidebar() {
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarSeparator/>
+      {/* <SidebarSeparator/> */}
 
       <SidebarContent>
-
+        
         <SidebarGroup>
         <SidebarGroupLabel>Routes</SidebarGroupLabel>
           <SidebarGroupContent>
           <SidebarMenuButton asChild>
             <Link to="/"> <House/> Home</Link>
           </SidebarMenuButton>
+
+         {/* <SidebarSeparator className="mt-4"/> */}
+          <SidebarGroupLabel className="mt-4">Planning</SidebarGroupLabel>
 
           <Collapsible defaultOpen className="group/collapsible">
             <SidebarMenuItem>
@@ -60,7 +63,6 @@ export default function AppSidebar() {
                   Planning System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" /></Link>
                 </SidebarMenuButton>
               </CollapsibleTrigger>
-              
               <CollapsibleContent>
                 <SidebarMenuSub>
                   <SidebarMenuItem>
@@ -90,7 +92,6 @@ export default function AppSidebar() {
                   Knowledge System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" /></Link>
                 </SidebarMenuButton>
               </CollapsibleTrigger>
-              
               <CollapsibleContent>
                 <SidebarMenuSub>
                   <SidebarMenuItem>
@@ -100,7 +101,7 @@ export default function AppSidebar() {
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                      <Link to="/StatePlanning"><FolderOpen/>File System</Link>
+                      <Link to="/File_System"><FolderOpen/>File System</Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
@@ -113,11 +114,14 @@ export default function AppSidebar() {
             </SidebarMenuItem>
           </Collapsible>
 
+          {/* <SidebarSeparator className="mt-4"/> */}
+          <SidebarGroupLabel className="mt-4">Execution</SidebarGroupLabel>
+
           <Collapsible defaultOpen className="group/collapsible">
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton asChild><Link to="/StatePlanning">
-                  Execution System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" /></Link>
+                  Time System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" /></Link>
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               
@@ -151,6 +155,7 @@ export default function AppSidebar() {
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               
+
               <CollapsibleContent>
                 <SidebarMenuSub>
                   <SidebarMenuItem>

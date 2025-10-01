@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StatePlanningRouteImport } from './routes/StatePlanning'
+import { Route as File_SystemRouteImport } from './routes/File_System'
 import { Route as IndexRouteImport } from './routes/index'
 
 const StatePlanningRoute = StatePlanningRouteImport.update({
   id: '/StatePlanning',
   path: '/StatePlanning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const File_SystemRoute = File_SystemRouteImport.update({
+  id: '/File_System',
+  path: '/File_System',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/File_System': typeof File_SystemRoute
   '/StatePlanning': typeof StatePlanningRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/File_System': typeof File_SystemRoute
   '/StatePlanning': typeof StatePlanningRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/File_System': typeof File_SystemRoute
   '/StatePlanning': typeof StatePlanningRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/StatePlanning'
+  fullPaths: '/' | '/File_System' | '/StatePlanning'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/StatePlanning'
-  id: '__root__' | '/' | '/StatePlanning'
+  to: '/' | '/File_System' | '/StatePlanning'
+  id: '__root__' | '/' | '/File_System' | '/StatePlanning'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  File_SystemRoute: typeof File_SystemRoute
   StatePlanningRoute: typeof StatePlanningRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/StatePlanning'
       fullPath: '/StatePlanning'
       preLoaderRoute: typeof StatePlanningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/File_System': {
+      id: '/File_System'
+      path: '/File_System'
+      fullPath: '/File_System'
+      preLoaderRoute: typeof File_SystemRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  File_SystemRoute: File_SystemRoute,
   StatePlanningRoute: StatePlanningRoute,
 }
 export const routeTree = rootRouteImport

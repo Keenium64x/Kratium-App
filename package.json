@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@fontsource/source-serif-4": "^5.2.9",
+    "@headless-tree/core": "^1.5.0",
+    "@headless-tree/react": "^1.5.0",
     "@mdxeditor/editor": "^3.46.1",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-collapsible": "^1.1.12",
@@ -20,6 +22,7 @@
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tooltip": "^1.2.8",
+    "@remixicon/react": "^4.6.0",
     "@tailwindcss/vite": "^4.1.13",
     "@tanstack/react-router": "^1.131.50",
     "@tanstack/react-router-devtools": "^1.131.50",
@@ -29,9 +32,11 @@
     "cmdk": "^1.1.1",
     "dagre": "^0.8.5",
     "lucide-react": "^0.544.0",
+    "radix-ui": "^1.4.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-pro-sidebar": "^1.1.0",
+    "react-resizable-panels": "^3.0.6",
     "react-winbox": "^1.5.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.13"
