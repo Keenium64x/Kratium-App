@@ -20,12 +20,25 @@ import {
 import { Tree, TreeItem, TreeItemLabel } from '@/components/ui/tree'
 import { useState } from "react"
 import { Input } from "./ui/input"
+import { create } from 'zustand'
 
 interface Item {
   name: string
   children?: string[]
   fileExtension?: string
 }
+
+
+type State = {
+  clickedValue: string | null
+  setClickedValue: (val: string | null) => void
+}
+
+export const useClickStore = create<State>((set) => ({
+  clickedValue: null,
+  setClickedValue: (val) => set({ clickedValue: val }),
+}))
+
 
 const initialItems: Record<string, Item> = {
   app: {
@@ -156,40 +169,16 @@ export default function FileTree() {
       getChildren: (itemId) => items[itemId]?.children ?? [],
     },
 
-onRename: async (item, newName) => {
-  const itemId = item.getId()
-  const data = item.getItemData() as Item
-
-  // Only update the name and fileExtension in place
-  const parts = newName.split(".")
-  const name = parts.slice(0, -1).join(".") || newName
-  const fileExtension = parts.length > 1 ? parts[parts.length - 1] : undefined
-
-  setItems((prev) => ({
-    ...prev,
-    [itemId]: {
-      ...data,
-      name,
-      fileExtension: data.children ? undefined : fileExtension,
+    onRename: (item, newName) => {
+      const itemId = item.getId()
+      setItems((prevItems) => ({
+        ...prevItems,
+        [itemId]: {
+          ...prevItems[itemId],
+          name: newName,
+        },
+      }))
     },
-  }))
-
-try {
-    await fetch("/api/rename-file", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        oldPath: itemId,
-        newName: name,
-        newExtension: fileExtension,
-      }),
-    })
-  } catch (err) {
-    console.error("Failed to rename on backend", err)
-    // Optional: revert local state if API fails
-  }
-
-},
 
     features: [
       syncDataLoaderFeature,
@@ -201,11 +190,23 @@ try {
     ],
   })
 
-const event = (e: React.MouseEvent<HTMLDivElement>) => {
+
+
+const setClickedValue = useClickStore((s) => s.setClickedValue)  
+  
+const handleExtention = (e: React.MouseEvent<HTMLDivElement>) => {
   const target = e.target as HTMLElement;
-  const content = target.textContent?.trim()
-  console.log(content);
+  const content = target.textContent?.trim();
+  const parts = content.split('.')
+  if (parts.length < 2) return undefined
+  const FileExtention = parts.pop()?.toLowerCase()  
+  
+  setClickedValue(FileExtention ?? null)
+
+
+
 }
+
 
   return (
     <div className="flex h-full flex-col gap-2 *:first:grow">
@@ -214,7 +215,7 @@ const event = (e: React.MouseEvent<HTMLDivElement>) => {
           className="relative before:absolute before:inset-0 before:-ms-1 before:bg-[repeating-linear-gradient(to_right,transparent_0,transparent_calc(var(--tree-indent)-1px),var(--border)_calc(var(--tree-indent)-1px),var(--border)_calc(var(--tree-indent)))]"
           indent={indent}
           tree={tree}
-            onClick={event}
+            onClick={handleExtention}
         >
           <AssistiveTreeDescription tree={tree} />
           {tree.getItems().map((item) => {
