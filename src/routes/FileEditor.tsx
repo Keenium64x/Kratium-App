@@ -12,7 +12,7 @@ import { useClickStore } from '@/components/FileTree'
 import MDEditor from '@/components/CustomComp/MDEditor'
 
 
-export const Route = createFileRoute('/File_System')({
+export const Route = createFileRoute('/FileEditor')({
   component: RouteComponent,
 })
 

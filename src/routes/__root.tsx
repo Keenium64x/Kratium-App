@@ -7,7 +7,6 @@ import { ThemeProvider } from '@/components/theme-provider'
 
 
 
-
 const RootLayout = () => (
   <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
     <SidebarProvider>
@@ -18,12 +17,12 @@ const RootLayout = () => (
 
         <div className="flex-1 p-4 flex flex-col bg-black">
           {/* Rounded top container */}
-          <div className="bg-[#110E13] rounded-t-3xl px-6 sticky top-0 z-100">
+          <div className="bg-[#110E13] rounded-t-3xl px-6 sticky z-2">
             <Navbar />
           </div>
 
           {/* Scrollable content below */}
-          <div className="flex-1 rounded-b-3xl bg-[#110E13] px-6 z-98">
+          <div className="flex-1 rounded-b-3xl bg-[#110E13] py-2 z-1">
             <Outlet />
           </div>
         </div>

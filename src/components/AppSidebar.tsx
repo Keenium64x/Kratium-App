@@ -101,12 +101,12 @@ export default function AppSidebar() {
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                      <Link to="/File_System"><FolderOpen/>File System</Link>
+                      <Link to="/FileManager"><FolderOpen/>File System</Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                      <Link to="/StatePlanning"><FileCode/>File Editor</Link>
+                      <Link to="/FileEditor"><FileCode/>File Editor</Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarMenuSub>
@@ -129,7 +129,7 @@ export default function AppSidebar() {
                 <SidebarMenuSub>
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                      <Link to="/StatePlanning"><GanttChart/>Gantt</Link>
+                      <Link to="/Gantt"><GanttChart/>Gantt</Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>

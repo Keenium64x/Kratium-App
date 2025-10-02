@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StatePlanningRouteImport } from './routes/StatePlanning'
-import { Route as File_SystemRouteImport } from './routes/File_System'
+import { Route as GanttRouteImport } from './routes/Gantt'
+import { Route as FileManagerRouteImport } from './routes/FileManager'
+import { Route as FileEditorRouteImport } from './routes/FileEditor'
 import { Route as IndexRouteImport } from './routes/index'
 
 const StatePlanningRoute = StatePlanningRouteImport.update({
@@ -18,9 +20,19 @@ const StatePlanningRoute = StatePlanningRouteImport.update({
   path: '/StatePlanning',
   getParentRoute: () => rootRouteImport,
 } as any)
-const File_SystemRoute = File_SystemRouteImport.update({
-  id: '/File_System',
-  path: '/File_System',
+const GanttRoute = GanttRouteImport.update({
+  id: '/Gantt',
+  path: '/Gantt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FileManagerRoute = FileManagerRouteImport.update({
+  id: '/FileManager',
+  path: '/FileManager',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FileEditorRoute = FileEditorRouteImport.update({
+  id: '/FileEditor',
+  path: '/FileEditor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,31 +43,45 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/File_System': typeof File_SystemRoute
+  '/FileEditor': typeof FileEditorRoute
+  '/FileManager': typeof FileManagerRoute
+  '/Gantt': typeof GanttRoute
   '/StatePlanning': typeof StatePlanningRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/File_System': typeof File_SystemRoute
+  '/FileEditor': typeof FileEditorRoute
+  '/FileManager': typeof FileManagerRoute
+  '/Gantt': typeof GanttRoute
   '/StatePlanning': typeof StatePlanningRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/File_System': typeof File_SystemRoute
+  '/FileEditor': typeof FileEditorRoute
+  '/FileManager': typeof FileManagerRoute
+  '/Gantt': typeof GanttRoute
   '/StatePlanning': typeof StatePlanningRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/File_System' | '/StatePlanning'
+  fullPaths: '/' | '/FileEditor' | '/FileManager' | '/Gantt' | '/StatePlanning'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/File_System' | '/StatePlanning'
-  id: '__root__' | '/' | '/File_System' | '/StatePlanning'
+  to: '/' | '/FileEditor' | '/FileManager' | '/Gantt' | '/StatePlanning'
+  id:
+    | '__root__'
+    | '/'
+    | '/FileEditor'
+    | '/FileManager'
+    | '/Gantt'
+    | '/StatePlanning'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  File_SystemRoute: typeof File_SystemRoute
+  FileEditorRoute: typeof FileEditorRoute
+  FileManagerRoute: typeof FileManagerRoute
+  GanttRoute: typeof GanttRoute
   StatePlanningRoute: typeof StatePlanningRoute
 }
 
@@ -68,11 +94,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StatePlanningRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/File_System': {
-      id: '/File_System'
-      path: '/File_System'
-      fullPath: '/File_System'
-      preLoaderRoute: typeof File_SystemRouteImport
+    '/Gantt': {
+      id: '/Gantt'
+      path: '/Gantt'
+      fullPath: '/Gantt'
+      preLoaderRoute: typeof GanttRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/FileManager': {
+      id: '/FileManager'
+      path: '/FileManager'
+      fullPath: '/FileManager'
+      preLoaderRoute: typeof FileManagerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/FileEditor': {
+      id: '/FileEditor'
+      path: '/FileEditor'
+      fullPath: '/FileEditor'
+      preLoaderRoute: typeof FileEditorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -87,7 +127,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  File_SystemRoute: File_SystemRoute,
+  FileEditorRoute: FileEditorRoute,
+  FileManagerRoute: FileManagerRoute,
+  GanttRoute: GanttRoute,
   StatePlanningRoute: StatePlanningRoute,
 }
 export const routeTree = rootRouteImport
