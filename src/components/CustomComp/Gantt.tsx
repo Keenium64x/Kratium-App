@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import "dhtmlx-gantt/codebase/dhtmlxgantt.css";
 import gantt from "dhtmlx-gantt";
 import './Gantt.css'

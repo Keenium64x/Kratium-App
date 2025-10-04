@@ -12,10 +12,10 @@ const RootLayout = () => (
     <SidebarProvider>
     
 
-      <div className="flex w-full h-full bg-black">
+      <div className="flex w-full h-full bg-[url('./../../Background.jpeg')] bg-[length:100%] bg-no-repeat bg-center">
         <AppSidebar />
 
-        <div className="flex-1 p-4 flex flex-col bg-black">
+        <div className="flex-1 p-8  flex flex-col ">
           {/* Rounded top container */}
           <div className="bg-[#110E13] rounded-t-3xl px-6 sticky z-2">
             <Navbar />

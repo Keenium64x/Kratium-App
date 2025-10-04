@@ -27,7 +27,7 @@ export default function Navbar() {
     <nav className="flex py-2.5 px-6 items-center justify-between border-b ">
         <div className='flex items-center gap-6'>
             <SidebarTrigger />
-
+{/* 
             <Breadcrumb>
               <BreadcrumbList>
                 {filteredMatches.map((match, idx) => {
@@ -41,14 +41,16 @@ export default function Navbar() {
                   return (
                     <BreadcrumbItem key={idx}>
                       <BreadcrumbLink asChild>
+                      <span>
                         <Link to={path}>{name}</Link>
+                      </span>
                       </BreadcrumbLink>
                       {idx < filteredMatches.length - 1 && <BreadcrumbSeparator />}
                     </BreadcrumbItem>
                   );
                 })}
               </BreadcrumbList>
-            </Breadcrumb>
+            </Breadcrumb> */}
           
         </div>
         <div className='flex items-center gap-4'>

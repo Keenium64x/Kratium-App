@@ -1,0 +1,31 @@
+.file-explorer, .files, .breadcrumb, .fm-context-menu, .react-doc-viewer, .jVOngj, .hxiLpm, .files-header {
+    background-color: #110E13 !important;
+    color: #DDB967 !important;
+}
+
+.item-action {
+    background-color: #110E13 !important;
+    color: #DDB967 !important;
+}
+.item-action.item-action:hover {
+    background-color: #271549 !important;
+    color: #DDB967 !important; 
+}
+
+.item-sub-menu {
+    background-color: #271549 !important;
+    color: #DDB967 !important;
+}
+
+.toolbar{
+    min-height: 50px !important;
+}
+
+/* .sb-folders-list-item:hover {
+    background-color: #271549 !important;
+} */
+
+/* .active{
+    background-color: #271549 !important;
+    color: #DDB967 !important;    
+} */
