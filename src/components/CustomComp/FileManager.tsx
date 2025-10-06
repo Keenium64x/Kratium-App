@@ -87,6 +87,7 @@ const onPaste = (filesToPaste, destinationFolder, operationType) => {
           newFiles.push(newEntry);
         }
       }
+
     });
 
   return newFiles;

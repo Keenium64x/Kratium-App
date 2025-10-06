@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Rnd } from 'react-rnd';
 import { useRef, useState } from 'react';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 const RootLayout = () => {
   const rndRef = useRef<Rnd | null>(null);
@@ -54,18 +55,20 @@ const RootLayout = () => {
               }}
               dragHandleClassName="drag-handle"
             >
-              <div className="flex flex-col h-full">
-                <div
-                  className="bg-[#110E13] rounded-t-3xl px-6 py-2 drag-handle cursor-move select-none"
-                  onDoubleClick={handleDoubleClick}
-                >
-                  <Navbar />
-                </div>
+              <ScrollArea className="h-full w-full rounded-md p-4">
+                <div className="flex flex-col h-full">
+                  <div
+                    className="bg-[#110E13] rounded-t-3xl px-6 py-2 drag-handle cursor-move select-none"
+                    onDoubleClick={handleDoubleClick}
+                  >
+                    <Navbar />
+                  </div>
 
-                <div className="flex-1 rounded-b-3xl bg-[#110E13] py-2 overflow-auto">
-                  <Outlet />
+                  <div className="flex-1 rounded-b-3xl bg-[#110E13] py-2 ">
+                    <Outlet />
+                  </div>
                 </div>
-              </div>
+              </ScrollArea>
             </Rnd>
           </div>
         </div>

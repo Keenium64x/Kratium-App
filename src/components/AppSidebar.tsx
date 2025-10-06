@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, Calendar, ChevronDown, ChevronUp, FileCode, FolderOpen, FolderRoot, GanttChart, Hammer, House, LayoutDashboardIcon, NotebookPen, NotebookPenIcon, ScrollText, Search, Settings, User2 } from "lucide-react"
+import { AlarmClock, BicepsFlexed, BriefcaseBusiness, Calendar, ChevronDown, ChevronUp, FileCode, FolderOpen, FolderRoot, GanttChart, GanttChartSquare, Hammer, House, LayoutDashboardIcon, LibraryBig, NotebookPen, NotebookPenIcon, ScrollText, Search, Settings, StickyNote, User2 } from "lucide-react"
 
 import {
   Sidebar,
@@ -48,11 +48,23 @@ export default function AppSidebar() {
       <SidebarContent>
         
         <SidebarGroup>
-        <SidebarGroupLabel>Routes</SidebarGroupLabel>
+        <SidebarGroupLabel>Systems Shortcuts</SidebarGroupLabel>
           <SidebarGroupContent>
           <SidebarMenuButton asChild>
             <Link to="/"> <House/> Home</Link>
           </SidebarMenuButton>
+          <SidebarMenuButton asChild>
+            <Link to="/"> <StickyNote/> Planning</Link>
+          </SidebarMenuButton>
+          <SidebarMenuButton asChild>
+            <Link to="/"> <LibraryBig/> Knowledge</Link>
+          </SidebarMenuButton>
+          <SidebarMenuButton asChild>
+            <Link to="/"> <AlarmClock/> Time</Link>
+          </SidebarMenuButton>   
+          <SidebarMenuButton asChild>
+            <Link to="/"> <BicepsFlexed/> Ability</Link>
+          </SidebarMenuButton>           
           </SidebarGroupContent>
         </SidebarGroup>
 
@@ -66,11 +78,11 @@ export default function AppSidebar() {
             </SidebarGroupLabel>
             <CollapsibleContent>
             
-          <Collapsible defaultOpen className="group/collapsible">
+          <Collapsible  className="group/collapsible">
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton >
-                  Planning System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                <StickyNote/>  Planning System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               <CollapsibleContent>
@@ -95,11 +107,11 @@ export default function AppSidebar() {
             </SidebarMenuItem>
           </Collapsible>            
 
-          <Collapsible defaultOpen className="group/collapsible">
+          <Collapsible  className="group/collapsible">
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton >
-                  Knowledge System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                <LibraryBig/>  Knowledge System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               <CollapsibleContent>
@@ -134,17 +146,17 @@ export default function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupLabel asChild>
             <CollapsibleTrigger>
-              Execution
+                Execution
               <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
             </CollapsibleTrigger>
           </SidebarGroupLabel>
           <CollapsibleContent>
 
-          <Collapsible defaultOpen className="group/collapsible">
+          <Collapsible className="group/collapsible">
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton >
-                  Time System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                <AlarmClock/>  Time System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               
@@ -192,7 +204,7 @@ export default function AppSidebar() {
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton >
-                  Ability System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                <BicepsFlexed/>  Ability System <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               <CollapsibleContent>

@@ -21,6 +21,11 @@
     min-height: 50px !important;
 }
 
+.file-explorer, .sidebar-resize, .sb-folders-list, .toolbar, .breadcrumb {
+    border-color: #DDB967 !important;
+}
+
+
 /* .sb-folders-list-item:hover {
     background-color: #271549 !important;
 } */
